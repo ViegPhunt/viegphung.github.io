@@ -50,45 +50,64 @@ export function useMarkdownFetcher(options: UseMarkdownFetcherOptions): UseMarkd
             return;
         }
 
-        let rawUrl = '';
+        let apiUrl = '';
         let webUrl = '';
 
         try {
             if (url) {
-                rawUrl = convertToRawUrl(url);
+                const rawUrl = convertToRawUrl(url);
                 if (url.includes('/blob/')) {
                     webUrl = url;
-                } else {
-                    const rawMatch = url.match(/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)/);
+                    const blobMatch = url.match(/github\.com\/([^\/]+)\/([^\/]+)\/blob\/([^\/]+)\/(.+)/);
+                    if (blobMatch) {
+                        const [, owner, repoName, branch, filePath] = blobMatch;
+                        apiUrl = `https://api.github.com/repos/${owner}/${repoName}/contents/${filePath}?ref=${branch}`;
+                    }
+                } else if (rawUrl.includes('raw.githubusercontent.com')) {
+                    const rawMatch = rawUrl.match(/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)/);
                     if (rawMatch) {
                         const [, owner, repoName, branch, filePath] = rawMatch;
                         webUrl = generateWebUrl(owner + '/' + repoName, filePath);
+                        apiUrl = `https://api.github.com/repos/${owner}/${repoName}/contents/${filePath}?ref=${branch}`;
                     }
                 }
             } else if (path) {
                 const [owner, repoName] = repo.split('/');
-                rawUrl = 'https://raw.githubusercontent.com/' + owner + '/' + repoName + '/main/' + path;
                 webUrl = generateWebUrl(repo, path);
+                apiUrl = `https://api.github.com/repos/${owner}/${repoName}/contents/${path}?ref=main`;
             }
 
-            if (!rawUrl) {
-                throw new Error('Unable to generate raw content URL');
+            if (!apiUrl) {
+                throw new Error('Unable to generate API URL');
             }
 
             setLoading(true);
             setError(false);
             setGithubUrl(webUrl);
 
-            const response = await fetch(rawUrl, {
-                headers: { 'User-Agent': 'ViegPhunt' }
-            });
+            const headers: Record<string, string> = {
+                'Accept': 'application/vnd.github+json',
+                'User-Agent': 'ViegPhunt'
+            };
+
+            if (typeof window === 'undefined' && process.env.GITHUB_TOKEN) {
+                headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+            }
+
+            const response = await fetch(apiUrl, { headers });
 
             if (!response.ok) {
                 throw new Error('GitHub Error: ' + response.statusText + ' (' + response.status + ')');
             }
 
-            const content = await response.text();
-            setContent(content);
+            const data = await response.json();
+            
+            if (data.content) {
+                const content = atob(data.content);
+                setContent(content);
+            } else {
+                throw new Error('No content found');
+            }
 
         } catch (err) {
             setError(true);
