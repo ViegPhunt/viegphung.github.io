@@ -37,7 +37,7 @@ jobs:
     - name: Build application
       run: npm run deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
         NODE_ENV: production
         NEXT_DISABLE_LIGHTNINGCSS: 1
 
