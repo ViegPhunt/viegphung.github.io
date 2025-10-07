@@ -30,8 +30,8 @@ npm run deploy    # Convenience: build + export (used by CI)
 ```
 
 ## 📤 Deployment (GitHub Pages)
-This repository uses a GitHub Actions workflow: `.github/workflows/deploy.yml`.
-Ensure in repository Settings → Pages → Source = GitHub Actions.
+- This repository uses a GitHub Actions workflow: `.github/workflows/deploy.yml`.
+- Ensure in repository Settings → Pages → Source = GitHub Actions.
 
 ## ✍ Adding Content
 ### Add a Project
