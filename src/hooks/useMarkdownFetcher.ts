@@ -103,7 +103,12 @@ export function useMarkdownFetcher(options: UseMarkdownFetcherOptions): UseMarkd
             const data = await response.json();
             
             if (data.content) {
-                const content = atob(data.content);
+                const binaryString = atob(data.content.replace(/\s/g, ''));
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                const content = new TextDecoder('utf-8').decode(bytes);
                 setContent(content);
             } else {
                 throw new Error('No content found');
