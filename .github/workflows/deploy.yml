@@ -39,7 +39,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_ENV: production
-        NEXT_DISABLE_LIGHTNINGCSS: 0
+        NEXT_DISABLE_LIGHTNINGCSS: 1
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
