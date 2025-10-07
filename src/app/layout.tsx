@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "../styles/globals.css";
 import Header from "../components/Header";
 import ScrollToTop from '../components/ScrollToTop';
@@ -20,7 +21,9 @@ export default function RootLayout({
                 <ChangePage />
                 <Scrollbar />
                 <div className="min-h-screen flex flex-col">
-                    <Header />
+                    <Suspense fallback={<div style={{ height: '80px' }} />}>
+                        <Header />
+                    </Suspense>
                     <main className="flex-1 w-full site-main">
                         {children}
                     </main>
