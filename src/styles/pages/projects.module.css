@@ -1,0 +1,142 @@
+/* Project List */
+.projectsList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.projectWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.projectItem {
+    padding: 2rem;
+    width: 75%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.projectItem:hover:not(.projectItemActive) {
+    transform: translateY(-3px);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.projectItemActive {
+    width: 100%;
+    border: 1px solid var(--color-border-light);
+}
+
+.projectHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.projectTitle {
+    margin-right: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.projectStarCount {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.projectUpdatedAt {
+    margin-left: auto;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.projectBody {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tagList {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tagItem {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+    border-radius: 25px;
+}
+
+.buttonGroup {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.viewButton {
+    padding: 0.5rem 1rem;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.viewButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px var(--color-shadow-light);
+}
+
+.githubButton {
+    padding: 0.5rem 1rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.githubButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px var(--color-shadow-light);
+}
+
+/* README Container */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.readmeContainer {
+    margin-top: 2rem;
+    background: var(--color-bg);
+    border-radius: 15px;
+    border: 1px solid var(--color-border-dark);
+    animation: slideDown 0.3s ease;
+}

@@ -1,0 +1,350 @@
+/* ====== Common States ====== */
+.welcome,
+.loading,
+.error {
+    padding: 4rem;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.welcome {
+    font-size: 1.2rem;
+    border-radius: 12px;
+}
+
+.loading {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+}
+.error h1 {
+    margin-bottom: 1rem;
+    padding: 0 0 0.5rem;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--color-divider);
+}
+.error a {
+    font-size: 1.1rem;
+    color: #89b4fa;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ====== Main Markdown ====== */
+.markdown {
+    padding: 0 2.5rem 2rem;
+    color: var(--color-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    word-wrap: break-word;
+    scroll-behavior: smooth;
+}
+
+.markdown :global(.octicon) {
+    display: none;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    color: var(--color-text);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    scroll-margin-top: 100px;
+}
+.markdown h1 {
+    font-size: 2.5em;
+    border-bottom: 1px solid var(--color-border-dark);
+    padding-bottom: 1rem;
+}
+.markdown h2 {
+    font-size: 1.6em;
+    border-bottom: 1px solid var(--color-border-dark);
+    padding-bottom: 1rem;
+}
+.markdown h3 {
+    font-size: 1.3em;
+}
+.markdown h4 {
+    font-size: 1.1em;
+}
+
+/* ====== Paragraphs & Text ====== */
+.markdown p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.markdown a {
+    color: #89b4fa;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.markdown strong {
+    font-weight: 600;
+}
+
+.markdown em {
+    font-style: italic;
+}
+
+/* Lists */
+.markdown ul,
+.markdown ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+.markdown ul {
+    list-style-type: disc;
+}
+.markdown ol {
+    list-style-type: decimal;
+}
+.markdown li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+.markdown li::marker {
+    color: var(--color-text);
+}
+/* Nested lists */
+.markdown ul ul,
+.markdown ol ol,
+.markdown ul ol,
+.markdown ol ul {
+    margin: 0.25rem 0;
+}
+
+/* Code */
+.markdown code {
+    padding: 0.2rem 0.4rem;
+    background: var(--color-bg-secondary);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: monospace;
+}
+
+/* Code elements */
+pre .inlineCode {
+    padding: 15px 20px;
+    background: var(--color-bg-secondary);
+    line-height: 1.5;
+    display: block;
+}
+
+.codeWrapper {
+    position: relative;
+}
+
+.codeContainer {
+    padding: 20px 25px;
+    background: var(--color-bg-secondary);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+    position: relative;
+}
+
+.codeContainer > div,
+.codeContainer > div > pre,
+.codeContainer code,
+.codeContainer pre {
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 1em !important;
+    line-height: 1.5 !important;
+}
+.copyButton {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 5px;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.6rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.codeContainer:hover .copyButton {
+    opacity: 1;
+}
+.copyButton:hover {
+    transform: translateY(-1px);
+}
+
+/* ====== Blockquotes ====== */
+.markdown blockquote,
+.blockquote {
+    margin: 1.25rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+}
+
+.markdown blockquote p {
+    margin: 0.25rem 0;
+}
+
+/* Label inside alert block */
+.alertLabel {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.blockquote-note .alertLabel {
+    color: #8caaee;
+}
+.blockquote-note {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: 5px solid #8caaee;
+}
+
+.blockquote-tip .alertLabel {
+    color: #a6d189;
+}
+.blockquote-tip {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: 5px solid #a6d189;
+}
+
+.blockquote-important .alertLabel {
+    color: #ca9ee6;
+}
+.blockquote-important {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: 5px solid #ca9ee6
+}
+
+.blockquote-warning .alertLabel {
+    color: #e5c890;
+}
+.blockquote-warning {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: 5px solid #e5c890;
+}
+
+.blockquote-caution .alertLabel {
+    color: #e78284;
+}
+.blockquote-caution {
+    background: transparent !important;
+    border-radius: 0px !important;
+    border-left: 5px solid #e78284;
+}
+
+/* ====== Tables ====== */
+.markdown table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border-dark);
+    border-radius: 6px;
+}
+
+.markdown th,
+.markdown td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+.markdown th {
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+}
+
+/* Images */
+.markdown img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.markdown p[align="center"] img,
+.markdown p img[width] {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.25rem;
+}
+
+.markdown p[align="center"] {
+    text-align: center;
+}
+
+.markdown p img:only-child:not([width]) {
+    display: block;
+    margin: 1rem auto;
+}
+
+/* ====== Video Container ====== */
+.markdown video {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* ====== Details & Summary ====== */
+.markdown details {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.markdown summary {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-secondary);
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.markdown details[open] summary {
+    border-bottom: 1px solid var(--color-border-dark);
+}
+
+details .copyButton {
+    top: 3.75rem;
+}
+details:hover .copyButton {
+    opacity: 1;
+}
+.copyButton:hover {
+    transform: translateY(-1px);
+}
+
+/* ====== Horizontal Rule ====== */
+.markdown hr {
+    border: none;
+    height: 1px;
+    background: var(--color-divider);
+    margin: 2rem 0;
+}

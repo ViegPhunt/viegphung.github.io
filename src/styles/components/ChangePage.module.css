@@ -1,0 +1,12 @@
+.animatedBox {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animatedBox.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

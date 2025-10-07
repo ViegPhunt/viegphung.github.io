@@ -1,0 +1,87 @@
+:root {
+    --color-bg-main: #191919;
+    --color-bg: #202020;
+    --color-bg-secondary: #2e2e2e;
+    --color-text: #ede0d4;
+    --color-link: #89b4fa;
+    --color-shadow-dark: rgba(0, 0, 0, 0.8);
+    --color-shadow-light: #ede0d4;
+    --color-divider: rgba(237, 224, 212, 0.3);
+    --color-border-light: rgba(237, 224, 212, 1);
+    --color-border-dark: rgba(255, 255, 255, 0.1);
+
+    --height-header: 80px;
+    --height-footer: 130px;
+
+    --fontsize-base: 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: var(--fontsize-base);
+    background: var(--color-bg-main);
+    color: var(--color-text);
+}
+
+/* Hide default scrollbar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+/* Container */
+.container {
+    min-height: calc(100vh - var(--height-header) - var(--height-footer));
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main content */
+.site-main {
+    margin: 0 15%;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    width: 90%;
+    background: var(--color-divider);
+}
+
+/* Loading state */
+.loading {
+    margin-top: 50px;
+    font-size: 2rem;
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+/* Error state */
+.error {
+    margin-top: 50px;
+    color: var(--color-text);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.errorLinkBackup {
+    color: #89b4fa;
+    text-decoration: underline;
+}
