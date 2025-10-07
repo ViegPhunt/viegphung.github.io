@@ -31,14 +31,6 @@ npm run deploy    # Convenience: build + export (used by CI)
 
 ## 📤 Deployment (GitHub Pages)
 This repository uses a GitHub Actions workflow: `.github/workflows/deploy.yml`.
-
-Workflow overview:
-1. Trigger: push to `master` (or update as needed)
-2. Install dependencies with `npm ci`
-3. Run `npm run deploy` (build + export)
-4. Upload `out/` as Pages artifact
-5. Publish to GitHub Pages environment
-
 Ensure in repository Settings → Pages → Source = GitHub Actions.
 
 ## ✍ Adding Content
