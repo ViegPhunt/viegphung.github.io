@@ -8,7 +8,7 @@
     "start": "next start",
     "export": "next export",
     "deploy": "next build && next export",
-    "check:token": "node scripts/check-token.mjs" //1
+    "check:token": "node scripts/check-token.mjs"
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
