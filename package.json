@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "check:token": "node scripts/check-token.mjs"
+    "start": "next start"
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
