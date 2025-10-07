@@ -1,22 +1,5 @@
-@keyframes adjustForFooter {
-    0% {
-        bottom: 50px;
-    }
-    100% {
-        bottom: calc(var(--height-footer) + 50px);
-    }
-}
-
-@supports not (animation-timeline: scroll(root)) {
-    .scrollToTop {
-        bottom: calc(var(--height-footer) + 50px);
-        animation: none;
-    }
-}
-
 .scrollToTop {
     position: fixed;
-    bottom: 50px;
     right: 50px;
     width: 50px;
     height: 50px;
@@ -29,14 +12,11 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 0px 15px var(--color-shadow-light);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.8);
     z-index: 1000;
-    animation: adjustForFooter linear both;
-    animation-timeline: scroll(root);
-    animation-range: calc(100% - 110px) 100%;
 }
 
 .scrollToTop.visible {

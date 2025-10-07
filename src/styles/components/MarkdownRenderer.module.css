@@ -134,7 +134,7 @@
     background: var(--color-bg-secondary);
     border-radius: 5px;
     font-size: 1em;
-    font-family: monospace;
+    font-family: sans-serif !important;
 }
 
 /* Code elements */
@@ -154,7 +154,6 @@ pre .inlineCode {
     background: var(--color-bg-secondary);
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    font-family: monospace;
     overflow-x: auto;
     position: relative;
 }
