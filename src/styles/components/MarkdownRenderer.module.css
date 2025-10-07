@@ -101,7 +101,7 @@
     font-style: italic;
 }
 
-/* Lists */
+/* ====== Lists ====== */
 .markdown ul,
 .markdown ol {
     margin: 1rem 0;
@@ -128,23 +128,20 @@
     margin: 0.25rem 0;
 }
 
-/* Code */
+/* ====== Code ====== */
 .markdown code {
     padding: 0.2rem 0.4rem;
     background: var(--color-bg-secondary);
     border-radius: 5px;
     font-size: 1em;
-    font-family: sans-serif !important;
+    font-family: var(--font-sans);
+}
+
+.markdown pre code {
+    font-family: var(--font-mono) !important;
 }
 
 /* Code elements */
-pre .inlineCode {
-    padding: 15px 20px;
-    background: var(--color-bg-secondary);
-    line-height: 1.5;
-    display: block;
-}
-
 .codeWrapper {
     position: relative;
 }
@@ -276,7 +273,7 @@ pre .inlineCode {
     font-weight: 600;
 }
 
-/* Images */
+/* ====== Images ====== */
 .markdown img {
     max-width: 100%;
     height: auto;
@@ -316,6 +313,9 @@ pre .inlineCode {
     overflow: hidden;
     position: relative;
 }
+.markdown details .codeContainer {
+    box-shadow: none;
+}
 
 .markdown summary {
     padding: 0.5rem 1rem;
@@ -328,16 +328,6 @@ pre .inlineCode {
 
 .markdown details[open] summary {
     border-bottom: 1px solid var(--color-border-dark);
-}
-
-details .copyButton {
-    top: 3.75rem;
-}
-details:hover .copyButton {
-    opacity: 1;
-}
-.copyButton:hover {
-    transform: translateY(-1px);
 }
 
 /* ====== Horizontal Rule ====== */

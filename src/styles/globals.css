@@ -14,6 +14,9 @@
     --height-footer: 130px;
 
     --fontsize-base: 15px;
+
+    --font-sans: var(--font-segoe-ui), system-ui, sans-serif;
+    --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
 * {
@@ -29,7 +32,7 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: var(--font-sans);
     font-size: var(--fontsize-base);
     background: var(--color-bg-main);
     color: var(--color-text);
@@ -85,5 +88,4 @@ body::-webkit-scrollbar,
 .errorLinkBackup {
     color: #89b4fa;
     text-decoration: underline;
-
 }

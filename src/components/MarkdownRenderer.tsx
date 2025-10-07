@@ -26,6 +26,11 @@ const CodeBlock = ({ children, className, ...props }: any) => {
     const match = /language-(\w+)/.exec(className || '');
     const language = match ? match[1] : '';
     const code = String(children).replace(/\n$/, '');
+    
+    const isCodeBlock = className?.includes('language-') || 
+                        className === 'hljs' || 
+                        (typeof children === 'string' && children.includes('\n')) ||
+                        props.node?.tagName === 'pre';
 
     React.useEffect(() => {
         actualScrollRef.current = actualScrollContainer;
@@ -55,7 +60,7 @@ const CodeBlock = ({ children, className, ...props }: any) => {
         setTimeout(() => setCopied(false), 2000);
     };
 
-return match ? (
+return isCodeBlock ? (
         <div className={styles.codeWrapper}>
             <div ref={codeContainerRef} className={styles.codeContainer}>
                 <SyntaxHighlighter 
@@ -79,61 +84,9 @@ return match ? (
             )}
         </div>
     ) : (
-        <code className={styles.inlineCode} {...props}>
+        <code {...props}>
             {children}
         </code>
-    );
-};
-
-const DetailsComponent = ({ children, ...props }: any) => {
-    const [copied, setCopied] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    
-    const handleCopy = async () => {
-        const childArray = Children.toArray(children);
-        const contentWithoutSummary = childArray.filter((child) => {
-            if (React.isValidElement(child)) {
-                return child.type !== 'summary';
-            }
-            return true;
-        });
-        
-        const textContent = contentWithoutSummary.map((child) => {
-            if (typeof child === 'string') return child;
-            if (React.isValidElement(child)) {
-                const el = child as React.ReactElement<{ children?: React.ReactNode }>;
-                const extractText = (node: any): string => {
-                    if (typeof node === 'string') return node;
-                    if (Array.isArray(node)) return node.map(extractText).join(' ');
-                    if (React.isValidElement(node)) {
-                        const element = node as React.ReactElement<{ children?: React.ReactNode }>;
-                        return extractText(element.props.children);
-                    }
-                    return '';
-                };
-                return extractText(el.props.children);
-            }
-            return '';
-        }).join(' ').trim();
-        
-        await navigator.clipboard.writeText(textContent);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    const handleToggle = () => {
-        setIsOpen(!isOpen);
-    };
-
-    return (
-        <details className={'details'} onToggle={handleToggle} {...props}>
-            {children}
-            {isOpen && (
-                <button className={styles.copyButton} onClick={handleCopy}>
-                    {copied ? 'Copied!' : 'Copy'}
-                </button>
-            )}
-        </details>
     );
 };
 
@@ -213,7 +166,6 @@ function MarkdownRendererComponent({
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     code: CodeBlock,
-                    details: DetailsComponent,
                     h1: (props: any) => <HeadingComponent level={1} {...props} />,
                     h2: (props: any) => <HeadingComponent level={2} {...props} />,
                     h3: (props: any) => <HeadingComponent level={3} {...props} />,
