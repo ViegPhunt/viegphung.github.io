@@ -1,25 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# viegphunt.github.io
 
-## Getting Started
+**Personal site / projects / write-ups** built with Next.js + static export for GitHub Pages.
 
-First, run the development server:
+---
 
-``` bash
-npm run dev
+## 📁 Project Structure
+```
+src/
+	app/
+		page.tsx          # Home page
+		about/            # About page
+		projects/         # Projects listing
+		writeup/          # Write-ups (Markdown based)
+		layout.tsx        # Root layout
+	components/         # Reusable UI pieces
+	hooks/              # Custom React hooks
+	lib/                # Utility modules (e.g. GitHub API, static loader)
+	styles/             # Global + modular styles
+public/               # Static assets (favicons, images)
+projects.json         # Projects data source
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Build
-
-``` bash
-npm run build
+## 🚀 Scripts
+```bash
+npm run dev       # Start dev server (http://localhost:3000)
+npm run build     # Production build (generates .next)
+npm run export    # Convert build to static site in /out
+npm run deploy    # Convenience: build + export (used by CI)
 ```
 
-## Deploy
+## 📤 Deployment (GitHub Pages)
+This repository uses a GitHub Actions workflow: `.github/workflows/deploy.yml`.
 
-This project is configured for static export and can be deployed to GitHub Pages or any static hosting service.
+Workflow overview:
+1. Trigger: push to `master` (or update as needed)
+2. Install dependencies with `npm ci`
+3. Run `npm run deploy` (build + export)
+4. Upload `out/` as Pages artifact
+5. Publish to GitHub Pages environment
+
+Ensure in repository Settings → Pages → Source = GitHub Actions.
+
+## ✍ Adding Content
+### Add a Project
+Edit `projects.json` and follow existing object structure.
+
+### Add a Write-up
+Extend the page in `app/writeup/page.tsx` to map local files or remote sources.
