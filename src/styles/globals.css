@@ -20,6 +20,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-color: transparent transparent;
 }
 
 html {
@@ -84,4 +85,5 @@ body::-webkit-scrollbar,
 .errorLinkBackup {
     color: #89b4fa;
     text-decoration: underline;
+
 }
