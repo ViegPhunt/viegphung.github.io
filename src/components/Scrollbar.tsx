@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
-import styles from '../styles/components/Scrollbar.module.css';
+import styles from '@/styles/components/Scrollbar.module.css';
 
 interface ScrollbarProps {
     direction?: 'vertical' | 'horizontal';
