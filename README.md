@@ -25,8 +25,6 @@ projects.json         # Projects data source
 ```bash
 npm run dev       # Start dev server (http://localhost:3000)
 npm run build     # Production build (generates .next)
-npm run export    # Convert build to static site in /out
-npm run deploy    # Convenience: build + export (used by CI)
 ```
 
 ## 📤 Deployment (GitHub Pages)
