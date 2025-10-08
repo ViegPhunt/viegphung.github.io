@@ -130,7 +130,7 @@
 
 /* ====== Code ====== */
 .markdown code {
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0.3rem;
     background: var(--color-bg-secondary);
     border-radius: 5px;
     font-size: 1em;
@@ -336,4 +336,48 @@
     height: 1px;
     background: var(--color-divider);
     margin: 2rem 0;
+}
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .markdown {
+        padding: 0 0 1rem;
+        font-size: 1rem;
+    }
+
+    .markdown h1 {
+        font-size: 2em;
+    }
+
+    .markdown ul,
+    .markdown ol {
+        padding-left: 1.5rem;
+    }
+
+    .markdown code {
+        padding: 0.1rem 0.3rem;
+    }
+
+    .codeContainer {
+        padding: 15px 20px;
+    }
+
+    .codeContainer > div,
+    .codeContainer > div > pre,
+    .codeContainer code,
+    .codeContainer pre {
+        padding: 0;
+        font-size: 0.9em !important;
+    }
+
+    .copyButton {
+        display: none;
+    }
+
+    .markdown p[align="center"] img,
+    .markdown p img[width] {
+        display: inline-block;
+        vertical-align: top;
+        margin: 5px 0;
+    }
 }

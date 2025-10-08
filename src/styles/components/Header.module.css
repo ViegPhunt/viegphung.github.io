@@ -9,7 +9,7 @@
     --color-border-side: rgba(237, 224, 212, var(--inverse-scroll));
 
     position: sticky;
-    top: 0px;
+    top: 0;
     height: var(--height-header);
     margin: auto;
     background: var(--color-bg);
@@ -50,13 +50,18 @@
     text-shadow: 0 1px 2px var(--color-shadow-light);
 }
 
+/* Menu button */
+.menuButton {
+    display: none;
+}
+
 /* Navigation */
-.navbar {
-    font-size: 1rem;
+.navBar {
+    font-size: 1.25rem;
     font-weight: 600;
     display: flex;
-    gap: 3rem;
     align-items: center;
+    gap: 3rem;
 }
 
 .navLink {
@@ -102,4 +107,111 @@
 
 .navLink .navItem:hover::after {
     width: 100%;
+}
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .siteHeader {
+        position: fixed;
+        padding: 0 7.5%;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--color-border-light);
+        border-radius: 0;
+        box-shadow: none;
+        transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    .siteHeader.hide {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    .siteHeader.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Menu button */
+    .menuButton {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        fill: var(--color-text);
+        transition: transform 0.2s ease;
+        z-index: 1100;
+    }
+    .menuButton:active {
+        transform: scale(1.1);
+    }
+
+    /* Navigation */
+    .navBar {
+        position: fixed;
+        top: var(--height-header);
+        right: 0;
+        height: calc(100vh - 80px);
+        width: 250px;
+        background: var(--color-bg);
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+        border-left: 1px solid var(--color-border-light);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        z-index: 1000;
+    }
+    .navOpen {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .navLink {
+        width: 100%;
+        text-align: center;
+    }
+    .navLink a {
+        padding: 0;
+        border-radius: 0;
+        font-weight: 500;
+    }
+    .navLink .focusItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--color-bg-secondary);
+        color: var(--color-text);
+        width: 100%;
+        height: 53px;
+    }
+    .navLink .focusItem:hover {
+        box-shadow: none;
+    }
+    .navLink .navItem {
+        display: block;
+        padding: 1rem 0;
+    }
+    .navLink .navItem::after {
+        display: none;
+    }
+
+    .overlay {
+        position: fixed;
+        top: var(--height-header);
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 800;
+    }
+    .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }

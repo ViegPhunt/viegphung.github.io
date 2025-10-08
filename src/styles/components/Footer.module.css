@@ -58,3 +58,28 @@
     color: var(--color-text);
     transform: scale(1.1);
 }
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .siteFooter {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .socialLinks {
+        order: 1;
+    }
+    .footerDesc {
+        order: 2;
+    }
+}

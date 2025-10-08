@@ -5,6 +5,11 @@
     gap: 2rem;
 }
 
+/* Menu button */
+.menuButton {
+    display: none;
+}
+
 .sidebar {
     top: 100px;
     height: fit-content;
@@ -85,5 +90,104 @@
     border: 1px solid var(--color-border-dark);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
     overflow-x: auto;
+}
 
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .writeupContainer {
+        padding: 73px 0 0;
+    }
+
+    .twoColumnLayout {
+        display: block;
+    }
+
+    /* Menu button */
+    .menuButton {
+        position: fixed;
+        left: 20px;
+        display: flex;
+        width: 55px;
+        height: 55px;
+        fill: var(--color-text);
+        border-radius: 10px;
+        padding: 10px;
+        background: var(--color-bg);
+        border: 1px solid var(--color-border-dark);
+        z-index: 1300;
+    }
+    .menuButton.withHeader {
+        top: calc(var(--height-header) + 9px);
+        transition: top 0.3s ease;
+    }
+    .menuButton.noHeader {
+        top: 9px;
+        transition: top 0.3s ease;
+    }
+    .menuButton:active {
+        transform: scale(1.1);
+    }
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        width: 300px;
+        background: var(--color-bg);
+        border-right: 1px solid var(--color-border-dark);
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 1000;
+    }
+    .sidebar.withHeader {
+        top: var(--height-header);
+        height: calc(100vh - var(--height-header));
+    }
+    .sidebar.noHeader {
+        top: 0;
+        height: 100vh;
+    }
+    .sidebarOpen {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;  
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 800;
+    }
+    .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .treeContainer {
+        border-radius: 0;
+        border: none;
+        border-right: 1px solid var(--color-border-dark);
+    }
+    .treeHeader {
+        padding: 1.5rem;
+        text-align: right;
+    }
+    .treeContent {
+        margin: 0 1rem;
+    }
+
+    /* Main Content */
+    .mainContent {
+        padding: 0 1rem 50px;
+        min-height: calc(100vh - var(--height-header) - var(--height-footer) - 173px);
+        background: none;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+    }
 }

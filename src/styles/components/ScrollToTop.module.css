@@ -41,3 +41,10 @@
 .scrollToTop:hover svg {
     transform: translateY(-1px);
 }
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .scrollToTop {
+        display: none;
+    }
+}

@@ -33,13 +33,17 @@
 
 .projectItemActive {
     width: 100%;
-    border: 1px solid var(--color-border-light);
 }
 
 .projectHeader {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.projectTitleAndStar {
+    display: flex;
+    align-items: center;
 }
 
 .projectTitle {
@@ -81,44 +85,31 @@
 }
 
 .buttonGroup {
-    margin-top: 0.5rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.viewButton {
+.button {
     padding: 0.5rem 1rem;
-    background: var(--color-text);
-    color: var(--color-bg);
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.viewButton:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 8px var(--color-shadow-light);
-}
-
-.githubButton {
-    padding: 0.5rem 1rem;
+    width: 100%;
+    background: var(--color-bg);
     color: var(--color-text);
-    border: 1px solid var(--color-border-light);
+    border: 1px solid var(--color-border-dark);
     border-radius: 5px;
+    font-family: var(--font-sans);
     font-size: 0.8rem;
     font-weight: 600;
+    text-align: center;
     text-decoration: none;
-    cursor: pointer;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.githubButton:hover {
-    transform: translateY(-1px);
+.button:hover {
     box-shadow: 0 0 8px var(--color-shadow-light);
+    transform: translateY(-1px);
 }
 
 /* README Container */
@@ -139,4 +130,44 @@
     border-radius: 15px;
     border: 1px solid var(--color-border-dark);
     animation: slideDown 0.3s ease;
+}
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .projectContainer {
+        width: 95%;
+    }
+
+    .projectItem {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .projectItem:hover:not(.projectItemActive) {
+        transform: none;
+        border: 1px solid var(--color-border-dark);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .projectHeader {
+        display: block;
+    }
+
+    .projectStarCount {
+        margin-left: auto;
+    }
+    
+    .projectUpdatedAt {
+        margin: 10px 0 0 0;
+        display: block;
+    }
+
+    .button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .readmeContainer {
+        border: none;
+    }
 }

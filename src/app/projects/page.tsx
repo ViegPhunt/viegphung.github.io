@@ -77,10 +77,12 @@ export default function Projects() {
                                     className={`${styles.projectItem} ${isSelected ? styles.projectItemActive : ''}`}
                                 >
                                     <div className={styles.projectHeader}>
-                                        <div className={styles.projectTitle}>
-                                            {repo.name}
+                                        <div className={styles.projectTitleAndStar}>
+                                            <div className={styles.projectTitle}>
+                                                {repo.name}
+                                            </div>
+                                            <span className={styles.projectStarCount}>⭐ {repo.stargazers_count}</span>
                                         </div>
-                                        <span className={styles.projectStarCount}>⭐ {repo.stargazers_count}</span>
                                         <span className={styles.projectUpdatedAt}>Updated: {formatDate(repo.updated_at)}</span>
                                     </div>
                                     <p className={styles.projectBody}>
@@ -95,7 +97,7 @@ export default function Projects() {
                                     </div>
                                     <div className={styles.buttonGroup}>
                                         <button
-                                            className={styles.viewButton}
+                                            className={styles.button}
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 handleProjectClick(repo.full_name);
@@ -107,7 +109,7 @@ export default function Projects() {
                                             href={`https://github.com/${repo.full_name}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={styles.githubButton}
+                                            className={styles.button}
                                             onClick={(e) => e.stopPropagation()}
                                         >
                                             GitHub
@@ -136,7 +138,7 @@ export default function Projects() {
 
     return (
         <AnimatedBox>
-            <div className='container'>
+            <div className={`container ${styles.projectContainer}`}>
                 { loading && <p className='loading'>Loading...</p> }
 
                 { renderProjects() }

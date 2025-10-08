@@ -159,3 +159,22 @@
 .contactLink:hover::after {
     width: 100%;
 }
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .aboutContainer {
+        max-width: 85%;
+    }
+
+    .aboutParagraph {
+        font-size: 1.1rem;
+    }
+
+    .contactList {
+        font-size: 1.1rem;
+    }
+
+    .contactLink::after {
+        width: 100%;
+    }
+}

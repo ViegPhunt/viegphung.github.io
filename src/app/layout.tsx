@@ -8,30 +8,30 @@ import ChangePage from "../components/ChangePage";
 import Footer from "../components/Footer";
 import Scrollbar from "../components/Scrollbar";
 
-const segoeUI = localFont({
+const arial = localFont({
     src: [
         {
-            path: '../fonts/segoe-ui/SegoeUI.ttf',
+            path: '../fonts/arial/Arial.ttf',
             weight: '400',
             style: 'normal',
         },
         {
-            path: '../fonts/segoe-ui/SegoeUI-Italic.ttf',
+            path: '../fonts/arial/Arial-Italic.ttf',
             weight: '400',
             style: 'italic',
         },
         {
-            path: '../fonts/segoe-ui/SegoeUI-Bold.ttf',
+            path: '../fonts/arial/Arial-Bold.ttf',
             weight: '700',
             style: 'normal',
         },
         {
-            path: '../fonts/segoe-ui/SegoeUI-BoldItalic.ttf',
+            path: '../fonts/arial/Arial-BoldItalic.ttf',
             weight: '700',
             style: 'italic',
         },
     ],
-    variable: '--font-segoe-ui',
+    variable: '--font-arial',
     display: 'swap',
 });
 
@@ -82,7 +82,7 @@ export default function RootLayout({
     children,
     }: Readonly<{ children: React.ReactNode; }>) {
     return (
-        <html lang="en" className={`${segoeUI.variable} ${jetbrainsMono.variable}`}>
+        <html lang="en" className={`${arial.variable} ${jetbrainsMono.variable}`}>
             <body className='antialiased' suppressHydrationWarning>
                 <ChangePage />
                 <Scrollbar />

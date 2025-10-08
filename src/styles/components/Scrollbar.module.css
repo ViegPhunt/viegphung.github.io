@@ -67,3 +67,10 @@
 .scrollbar.horizontal .thumb:active {
     cursor: grabbing;
 }
+
+/* For 1024px wide devices */
+@media (max-width: 1150px) {
+    .scrollbar {
+        display: none;
+    }
+}
