@@ -86,25 +86,33 @@ export default function About() {
                             <div className={styles.contactItem}>
                                 <p>Email:</p>
                                 <div className={styles.contactLink}>
-                                    <a href="mailto:phungquocvietattt@gmail.com">phungquocvietattt@gmail.com</a>
+                                    <a href="mailto:phungquocvietattt@gmail.com" target="_blank" rel="noopener noreferrer">
+                                        phungquocvietattt@gmail.com
+                                    </a>
                                 </div>
                             </div>
                             <div className={styles.contactItem}>
                                 <p>Github:</p>
                                 <div className={styles.contactLink}>
-                                    <a href="https://github.com/ViegPhunt">github.com/ViegPhunt</a>
+                                    <a href="https://github.com/ViegPhunt" target="_blank" rel="noopener noreferrer">
+                                        github.com/ViegPhunt
+                                    </a>
                                 </div>
                             </div>
                             <div className={styles.contactItem}>
                                 <p>Telegram:</p>
                                 <div className={styles.contactLink}>
-                                    <a href="https://t.me/viegphunt">t.me/viegphunt</a>
+                                    <a href="https://t.me/viegphunt" target="_blank" rel="noopener noreferrer">
+                                        t.me/viegphunt
+                                    </a>
                                 </div>
                             </div>
                             <div className={styles.contactItem}>
                                 <p>Facebook:</p>
                                 <div className={styles.contactLink}>
-                                    <a href="https://www.facebook.com/phung.viet.68/">facebook.com/phung.viet.68</a>
+                                    <a href="https://www.facebook.com/phung.viet.68/" target="_blank" rel="noopener noreferrer">
+                                        facebook.com/phung.viet.68
+                                    </a>
                                 </div>
                             </div>
                         </div>
