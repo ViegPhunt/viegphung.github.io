@@ -132,7 +132,7 @@
     animation: slideDown 0.3s ease;
 }
 
-/* For 1024px wide devices */
+/* For 1150px wide devices */
 @media (max-width: 1150px) {
     .projectContainer {
         width: 95%;

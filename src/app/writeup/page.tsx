@@ -200,7 +200,7 @@ export default function CTFWriteUp() {
                             error={error}
                             githubUrl={githubUrl}
                             filePath={selectedReadme || ''}
-                            welcomeMessage={'This page contains my CTF WriteUps'}
+                            welcomeMessage={'CTF WriteUps'}
                         />
                     </div>
                 </div>

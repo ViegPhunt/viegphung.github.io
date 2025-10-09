@@ -338,7 +338,7 @@
     margin: 2rem 0;
 }
 
-/* For 1024px wide devices */
+/* For 1150px wide devices */
 @media (max-width: 1150px) {
     .markdown {
         padding: 0 0 1rem;

@@ -59,7 +59,7 @@
     transform: scale(1.1);
 }
 
-/* For 1024px wide devices */
+/* For 1150px wide devices */
 @media (max-width: 1150px) {
     .siteFooter {
         padding: 0;

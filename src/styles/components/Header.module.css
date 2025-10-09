@@ -109,11 +109,11 @@
     width: 100%;
 }
 
-/* For 1024px wide devices */
+/* For 1150px wide devices */
 @media (max-width: 1150px) {
     .siteHeader {
         position: fixed;
-        padding: 0 7.5%;
+        padding: 0 calc(7.5% - 10px) 0 7.5%;
         width: 100%;
         border: none;
         border-bottom: 1px solid var(--color-border-light);
@@ -132,14 +132,19 @@
 
     /* Menu button */
     .menuButton {
-        width: 35px;
-        height: 35px;
+        padding: 10px;
+        width: 55px;
+        height: 55px;
         display: flex;
         align-items: center;
         justify-content: center;
         fill: var(--color-text);
         transition: transform 0.2s ease;
         z-index: 1100;
+    }
+    .menuButton svg {
+        width: 100%;
+        height: 100%;
     }
     .menuButton:active {
         transform: scale(1.1);

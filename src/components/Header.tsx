@@ -29,7 +29,7 @@ export default function Header() {
             const progress = Math.min(scrollTop / maxScroll, 1);
             setScrollProgress(progress);
 
-            const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+            const isMobile = window.matchMedia('(max-width: 1150px)').matches;
             if (isMobile && Math.abs(scrollTop - lastScrollY) > 50) {
                 setScrollDir(scrollTop > lastScrollY ? 'down' : 'up');
                 setLastScrollY(scrollTop);

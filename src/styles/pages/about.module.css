@@ -160,10 +160,14 @@
     width: 100%;
 }
 
-/* For 1024px wide devices */
+/* For 1150px wide devices */
 @media (max-width: 1150px) {
     .aboutContainer {
         max-width: 85%;
+    }
+
+    .toggleButton:hover {
+        box-shadow: none;
     }
 
     .aboutParagraph {
